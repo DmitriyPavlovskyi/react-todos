@@ -1,5 +1,5 @@
-var webpack = require('webpack')
-var path = require('path')
+var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -18,11 +18,11 @@ module.exports = {
     },
     module: {
         loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
-            }
+          {
+              test: /\.jsx?$/,
+              exclude: /node_modules/,
+              loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+          }
         ]
     },
     plugins: [

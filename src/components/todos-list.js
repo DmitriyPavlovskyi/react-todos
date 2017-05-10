@@ -9,9 +9,8 @@ import TodosListItem from './todos-list-item';
 // task={todo.task} isCompleted={todo.isCompleted} === ...todo
 export default class TodosList extends React.Component {
   renderItems() {
-    return _.map(this.props.todos, (todo, index) => <TodosListItem key={index} {...todo} />)
+    return _.map(this.props.todos, (todo, index) => <TodosListItem key={index} {...todo} />);
   }
-
 
   render () {
     console.log(this);
