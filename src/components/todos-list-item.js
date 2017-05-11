@@ -8,7 +8,7 @@ export default class TodosListItem extends React.Component {
       isEditing: false
     };
   }
-
+// Для событий нужно биндить this, поскольку он будет терятся
   renderActionsSection() {
     if (this.state.isEditing) {
       return (
@@ -18,7 +18,7 @@ export default class TodosListItem extends React.Component {
         </td>
       );
     }
-
+    // Всегда нужно при return оборачивать html в какой-то оборачивающий тэг!!
     return (
       <td>
         <button onClick={this.onEditClick.bind(this)}>Edit</button>
