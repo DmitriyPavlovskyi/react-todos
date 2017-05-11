@@ -8,6 +8,7 @@ import TodosListItem from './todos-list-item';
 // ... -> ES6 spreading operator
 // task={todo.task} isCompleted={todo.isCompleted} === ...todo
 // {...this.props} так можно передать все методы дальше
+// const props = _.omit(this.props, 'todos'); С помощью этой строки мы передаем все методы которые обьявили в компоненте ранее в App
 export default class TodosList extends React.Component {
   renderItems() {
     const props = _.omit(this.props, 'todos');
