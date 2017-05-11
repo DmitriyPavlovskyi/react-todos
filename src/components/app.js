@@ -22,7 +22,7 @@ export default class App extends React.Component {
       todos
     }
   }
-// таким образом в createTodo мы можем передавать методы в другие компоненты и в том компоненте будем иметь к ним доступ через this.props.createTask this.props.toggleTask
+// таким образом в createTodo мы можем передавать методы в другие компоненты и в том компоненте будем иметь к ним доступ через this.props.createTask this.props.toggleTask this.saveTask
   render () {
     return (
       <div>
@@ -31,6 +31,7 @@ export default class App extends React.Component {
         <TodosList
           todos={this.state.todos}
           toggleTask={this.toggleTask.bind(this)}
+          saveTask={this.saveTask.bind(this)}
         />
       </div>
     );
@@ -48,6 +49,13 @@ export default class App extends React.Component {
       task,
       isCompleted: false
     });
+    this.setState({ todos: this.state.todos });
+  }
+  // this.setState({}) делает render страницы (?)
+  saveTask(oldTask, newTask) {
+    const foundTodo = _.find(this.state.todos, todo => todo.task === oldTask);
+
+    foundTodo.task = newTask;
     this.setState({ todos: this.state.todos });
   }
 }
