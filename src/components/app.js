@@ -23,11 +23,12 @@ export default class App extends React.Component {
     }
   }
 // таким образом в createTodo мы можем передавать методы в другие компоненты и в том компоненте будем иметь к ним доступ через this.props.createTask this.props.toggleTask this.saveTask
+  // <CreateTodo todos={this.state.todos} таким образом можно прокинуть данные в наш компонент
   render () {
     return (
       <div>
         <h1>React ToDos App</h1>
-        <CreateTodo createTask={this.createTask.bind(this)} />
+        <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)} />
         <TodosList
           todos={this.state.todos}
           toggleTask={this.toggleTask.bind(this)}
