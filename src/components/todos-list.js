@@ -12,7 +12,6 @@ export default class TodosList extends React.Component {
     return _.map(this.props.todos, (todo, index) => <TodosListItem key={index} {...todo} />)
   }
 
-
   render () {
     console.log(this);
     console.log(this.props.todos);
