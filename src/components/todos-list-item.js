@@ -8,6 +8,28 @@ export default class TodosListItem extends React.Component {
       isEditing: false
     };
   }
+
+  renderTaskSection() {
+    const { task, isCompleted } = this.props;
+    // Можно посмотреть, что функция передалась в таску
+    // console.log(this.props);
+
+    const taskStyle = {
+      color: isCompleted ? 'green' : 'red',
+      cursor: 'pointer'
+    }
+
+    // <td>{this.props.task}</td>
+    // из-за того что добавили строку const { task, isCompleted } = this.props; теперь можно использовать данные так
+    // <td>{task}</td>
+    return (
+      <td style={taskStyle}
+          onClick={this.props.toggleTask.bind(this, task)}
+        >
+          {task}
+      </td>
+    );
+  }
 // Для событий нужно биндить this, поскольку он будет терятся
   renderActionsSection() {
     if (this.state.isEditing) {
@@ -30,7 +52,7 @@ export default class TodosListItem extends React.Component {
   render () {
     return (
         <tr>
-          <td>{this.props.task}</td>
+          {this.renderTaskSection()}
           {this.renderActionsSection()}
         </tr>
     );
